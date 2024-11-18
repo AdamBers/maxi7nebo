@@ -12,7 +12,8 @@ const GlobalStyles = () => {
           padding: 0;
         }
         body {
-          background-color: ${theme.colors.background};
+          /* background-color: ${theme.colors.background}; */
+          background-color: #fddaa5;
           color: ${theme.colors.text};
           font-family: "Montserrat, sans-serif";
           margin: 0;
@@ -61,6 +62,27 @@ const GlobalStyles = () => {
           font-weight: 500;
           font-size: 14px;
           line-height: 140%;
+        }
+        button {
+          user-select: none;
+          &:focus {
+            outline: none;
+          }
+          &:active {
+            transform: translateY(1px);
+          }
+          &:focus-visible:before {
+            content: "";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            bottom: -5px;
+            left: -5px;
+            border: 1px solid ${theme.colors.accent};
+            border-radius: inherit;
+            background-color: transparent;
+            pointer-events: none;
+          }
         }
       `}
     />

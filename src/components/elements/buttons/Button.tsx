@@ -1,10 +1,8 @@
-/** @jsxImportSource @emotion/react */
 import React from "react";
-import { css } from "@emotion/react";
-import { useTheme } from "@emotion/react";
-import { hexToRgba } from "../../../utils/hexToRgba";
-import CloseIcon from "../../../assets/icons/close.svg";
-import ArrowRightIcon from "../../../assets/icons/arrow_forward.svg";
+import { useTheme, css } from "@emotion/react";
+import { hexToRgba } from "@/utils/hexToRgba";
+import CloseIcon from "@/assets/icons/close.svg";
+import ArrowRightWhiteIcon from "@/assets/icons/arrow_right_white.svg";
 
 interface ButtonProps {
   variant?: "primary" | "withArrowRight" | "withDeleteIcon";
@@ -39,29 +37,12 @@ const Button: React.FC<ButtonProps> = ({
         : theme.colors.hoverColor};
     }
 
-    &:focus {
-      outline: none;
-    }
-
-    &:focus-visible:before {
-      content: "";
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      bottom: -5px;
-      left: -5px;
-      border: 1px solid ${theme.colors.accent};
-      border-radius: inherit;
-      background-color: transparent;
-      pointer-events: none;
-    }
     &:disabled {
       background-color: ${hexToRgba(theme.colors.accent, 0.2)};
       pointer-events: none;
     }
     &:active {
       box-shadow: 0px 0px 15px 0px #70051e inset;
-      transform: translateY(1px);
     }
   `;
 
@@ -85,7 +66,11 @@ const Button: React.FC<ButtonProps> = ({
       )}
       {text}
       {variant === "withArrowRight" && (
-        <img src={ArrowRightIcon} alt="Arrow right" css={arrowRightStyle} />
+        <img
+          src={ArrowRightWhiteIcon}
+          alt="Arrow right"
+          css={arrowRightStyle}
+        />
       )}
     </button>
   );
